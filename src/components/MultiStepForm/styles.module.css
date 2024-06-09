@@ -1,0 +1,122 @@
+/* General Form Styles */
+.multi-step-form {
+    margin: 0 auto;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.multi-step-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.multi-step-form-content label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.multi-step-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.multi-step-form .step {
+    display: none;
+}
+
+.multi-step-form .step.active {
+    display: block;
+}
+
+/* Input Fields */
+.multi-step-form input[type="text"],
+.multi-step-form input[type="email"],
+.multi-step-form input[type="number"],
+.multi-step-form input[type="password"],
+.multi-step-form select,
+.multi-step-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Navigation Buttons */
+.multi-step-form .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.multi-step-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.multi-step-form button:focus {
+    outline: none;
+}
+
+.multi-step-form .prev-btn {
+    background-color: #bbb;
+    color: white;
+}
+
+.multi-step-form .prev-btn:hover {
+    background-color: #999;
+}
+
+.multi-step-form .next-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.multi-step-form .next-btn:hover {
+    background-color: #45a049;
+}
+
+.multi-step-form .submit-btn {
+    background-color: #007BFF;
+    color: white;
+}
+
+.multi-step-form .submit-btn:hover {
+    background-color: #0069d9;
+}
+
+/* Progress Indicators */
+.multi-step-form .steps-indicator {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.multi-step-form .steps-indicator span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    margin: 0 5px;
+    background-color: #bbb;
+    color: white;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.multi-step-form .steps-indicator span.active {
+    background-color: #4CAF50;
+}
+
+.multi-step-form .steps-indicator span.completed {
+    background-color: #007BFF;
+}

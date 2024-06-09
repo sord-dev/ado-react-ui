@@ -1,0 +1,47 @@
+.breadcrumbHeader {
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #333333;
+    padding: 8px 16px; /* Increased padding for better spacing */
+    background-color: #ffffff;
+    border-radius: 4px; /* Rounded corners */
+}
+
+.breadcrumbLink {
+    color: #0078d4;
+    text-decoration: none;
+    font-weight: 500; /* Slightly bolder font for links */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.breadcrumbLink:hover {
+    text-decoration: underline;
+    color: #005a9e; /* Darker blue on hover */
+}
+
+.breadcrumbLabel {
+    color: #666666;
+    font-weight: 400; /* Normal font weight for labels */
+}
+
+.separator {
+    margin: 0 8px;
+    color: #999999; /* Slightly lighter color for separator */
+}
+
+@media (max-width: 768px) {
+    .breadcrumbHeader {
+        flex-direction: column; /* Stack breadcrumbs vertically on small screens */
+        align-items: flex-start;
+    }
+    
+    .separator {
+        display: none; /* Hide separators on small screens */
+    }
+    
+    .breadcrumbLink, .breadcrumbLabel {
+        margin-bottom: 4px; /* Add spacing between items */
+    }
+}

@@ -1,0 +1,18 @@
+.overview {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-pane {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #303030;
+    color: white;
+    text-align: center;
+    padding: 16px 24px;
+}
+
+.info-pane h3 {
+    font-size: .8em;
+}

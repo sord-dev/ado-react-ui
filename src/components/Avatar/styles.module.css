@@ -1,0 +1,75 @@
+.avatar-container {
+    position: relative;
+}
+
+.avatar-icon,
+.avatar-icon-x2 {
+    /* Styles for the avatar icon */
+    width: 32px;
+    /* Set the desired width */
+    height: 32px;
+    /* Set the desired height */
+    border-radius: 50%;
+
+    font-size: .8rem;
+    text-align: center;
+    line-height: 32px;
+    cursor: pointer;
+}
+
+.avatar-icon-x2 {
+    font-size: 2rem;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-dropdown {
+    position: absolute;
+    background-color: #303030;
+    padding: 6px 12px;
+    height: 125px;
+    min-width: 200px;
+    right: 0;
+}
+
+.profile-dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .7em;
+}
+
+.profile-dropdown-header span {
+    cursor: pointer;
+    color: #fff;
+}
+
+.profile-dropdown-header span:hover {
+    text-decoration: underline;
+}
+
+.profile-dropdown-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    gap: 12px;
+}
+
+.profile-dropdown-meta {
+    font-size: .8rem;
+    margin: 0;
+}
+.profile-dropdown-meta p {
+    font-weight: 400;
+    font-size: .8em;
+}
+
+
+.profile-dropdown-meta h4 {
+    margin-bottom: 4px;
+    font-size: 1rem;
+}

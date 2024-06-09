@@ -1,0 +1,159 @@
+.title h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.title p {
+    font-size: 0.6rem;
+    margin-top: 0;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    /* Allow header and sidebar to sit side-by-side */
+    color: #fff;
+}
+
+.nav-header {
+    /* Styles for the header section */
+    display: flex;
+    /* Allow elements within the header to sit side-by-side */
+    align-items: center;
+    /* Vertically align content within the header */
+    justify-content: space-between;
+    /* Distribute header elements horizontally */
+    flex: 1;
+    /* Allow header to fill remaining space after sidebar */
+    padding: 10px;
+    height: 48px;
+    z-index: 1000;
+    background-color: #262626;
+}
+
+.nav-logo {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    color: #fff;
+}
+
+.nav-logo img {
+    width: 32px;
+    height: 32px;
+}
+
+.nav-logo h1 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.side-nav {
+    /* Styles for the sidebar section */
+    width: 200px;
+    /* Set the desired sidebar width */
+    background-color: #303030;
+    /* Dark background similar to ADO */
+    color: #fff;
+    /* White text color */
+    position: fixed;
+    top: 48px;
+    /* Calculate top position based on header height */
+    /* Position sidebar at the top of the viewport */
+    bottom: 0;
+    /* Set sidebar height to full viewport height */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.avatar-icon {
+    /* Styles for the avatar icon */
+    width: 32px;
+    /* Set the desired width */
+    height: 32px;
+    /* Set the desired height */
+    border-radius: 50%;
+
+    font-size: .8rem;
+    text-align: center;
+    line-height: 32px;
+    /* Create a circular shape */
+    border: 1px solid black;
+}
+
+
+.side-nav {
+    /* Styles for the main side navigation container */
+    background-color: #303030;
+    /* Dark background similar to ADO */
+    color: #fff;
+    /* White text color */
+
+}
+
+.side-nav-item {
+    /* Styles for each side navigation item */
+    padding: 12px 24px;
+    cursor: pointer;
+    /* Indicate clickable behavior */
+    display: flex;
+    /* Allow aligning label and sub-menu horizontally */
+    align-items: center;
+    /* Vertically align content within the item */
+    font-size: .8em;
+}
+
+.alert {
+    /* Styles for the alert badge */
+    background-color: #ffffff;
+    /* Red background color */
+    color: #000000;
+    /* White text color */
+    border-radius: 2px;
+    /* Create a circular shape */
+    padding: 4px 6px;
+    /* Add padding to the alert badge */
+    margin-left: auto;
+    /* Push the alert badge to the right */
+    font-size: .8em;
+    font-weight: 500;
+}
+
+.side-nav-item:hover {
+    /* Styles for hover effect */
+    background-color: #262626;
+    /* Slightly darker background on hover */
+}
+
+.side-nav-item-label {
+    /* Styles for the label within the side navigation item */
+    font-weight: bold;
+    /* Bold text for main options */
+}
+
+.search-bar {
+    /* Styles for the search bar */
+    padding: 10px;
+    /* Add padding to the search bar */
+    border: none;
+    /* Remove border */
+    border-radius: 4px;
+    /* Add border radius */
+    outline: none;
+    /* Remove outline */
+}
+
+.search-bar input {
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    min-height: 20px;
+    width: 400px;
+    background-color: #ccc;
+    font-size: .7em;
+}
