@@ -27,33 +27,36 @@ const WorkItem = ({ task = defaultData, openModal }) => {
 
     return (
         <div className={styles['task-item']}>
-            <div className={styles['task-type']}>
-                <img src={icon} alt={`${type} icon`} />
-                <p>{type}</p>
-            </div>
 
-            <div className={styles['task-title']}>
-                <h2>{id}</h2>
-                <h2 className={styles['task-title-name']}>{title}</h2>
-            </div>
-
-            <section className={styles['details-bar']}>
-                <div className={styles['assigned-to']}>
-                    <p>Assigned to:</p>
-                    <img src={imageUrl} alt={`${displayName}'s avatar`} />
-                    <p>{displayName}</p>
+            <header className={styles['task-item-header']}>
+                <div className={styles['task-type']}>
+                    <img src={icon} alt={`${type} icon`} />
+                    <p>{type}</p>
                 </div>
 
-                <div className={styles['task-details']}>
-                    <p>State: {state}</p>
-                    <p>Priority: {priority}</p>
-                    <p>Created: {createdDate}</p>
-                    <p>Last Updated: {changedDate}</p>
-                    <p>Comments: {commentCount}</p>
-                    <p>Attachments: {attachments.length}</p>
+                <div className={styles['task-title']}>
+                    <h2>{id}</h2>
+                    <a href={taskUrl} target='_blank' rel='noreferrer' ><h2 className={styles['task-title-name']}>{title}</h2></a>
                 </div>
 
-            </section>
+                <section className={styles['details-bar']}>
+                    <div className={styles['assigned-to']}>
+                        <p>Assigned to:</p>
+                        <img src={imageUrl} alt={`${displayName}'s avatar`} />
+                        <p>{displayName}</p>
+                    </div>
+
+                    <div className={styles['task-details']}>
+                        <p>State: {state}</p>
+                        <p>Priority: {priority}</p>
+                        <p>Created: {createdDate}</p>
+                        <p>Last Updated: {changedDate}</p>
+                        <p>Comments: {commentCount}</p>
+                        <p>Attachments: {attachments.length}</p>
+                    </div>
+
+                </section>
+            </header>
 
             <section className={styles['main-info-sect']}>
 
@@ -84,14 +87,7 @@ const WorkItem = ({ task = defaultData, openModal }) => {
                         <QAButton label='Search Related Items' />
                     </div>
                 </div>
-
-
             </section>
-
-
-            <div className={styles['task-links']}>
-                <a href={taskUrl} target="_blank" rel="noopener noreferrer">View Task</a>
-            </div>
         </div>
     );
 };

@@ -6,10 +6,18 @@ export function AttachmentsList({ attachments = [] }) {
         <section>
             <h2>Attachments</h2>
             {attachments.length > 0 ? (
-                <div>
+                <div className={styles.attachmentsList}>
                     {attachments.map(attachment => (
-                        <a key={attachment.id
-                        } href={attachment.url + `?fileName=${attachment.name}`} target="_blank" rel="noopener noreferrer">{attachment.name}</a>
+                        <div className={styles.attachment}>
+                            <div>
+                                <h4>{attachment.name}</h4>
+                                <p>{attachment.size || '0kb'}</p>
+                            </div>
+
+                            <a href={attachment.url + `?fileName=${attachment.name}`} target="_blank" rel="noopener noreferrer">
+                                <button>Download</button>
+                            </a>
+                        </div>
                     ))}
                 </div>
             ) : (

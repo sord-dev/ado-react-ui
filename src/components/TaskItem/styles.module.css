@@ -1,14 +1,18 @@
 .task-item {
     border-radius: 4px;
-    padding: 16px;
     background-color: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100%;
 }
 
+.task-item-header {
+    
+    padding: 12px;
+   
+}
+
 .task-item h2 {
     font-size: 16px;
-    color: #333333;
     margin-bottom: 8px;
 }
 
@@ -16,6 +20,14 @@
     font-size: 20px;
     color: #0078d4;
     margin-bottom: 16px;
+}
+
+.main-info-sect {
+    padding: 12px;
+}
+
+.main-info-sect section {
+    margin-bottom: 12px;
 }
 
 .task-title {
@@ -26,7 +38,6 @@
 
 .task-title-name {
     font-size: 16px;
-    color: #333333;
     margin: 0;
     padding: 2px 4px;
     border: 1px solid transparent;
@@ -40,7 +51,6 @@
 .task-description {
     border: 1px solid black;
     margin-bottom: 16px;
-    color: #333333;
     width: max-content;
     width: 480px;
     padding: 12px 24px;
@@ -73,7 +83,6 @@
 
 .assigned-to p {
     font-size: .8em;
-    color: #333333;
     margin: 0;
 }
 
@@ -85,7 +94,6 @@
 
 .task-details p {
     font-size: .8em;
-    color: #333333;
 }
 
 .task-links {
@@ -135,31 +143,52 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    font-size: .8em;
 }
 
 .ticket h4 {
     margin-top: 0;
-    margin-bottom: 5px;
 }
 
 .ticket p {
     margin: 0;
+    font-weight: 300;
 }
 
-.ticket button {
+.ticket button,
+.attachmentsList button {
     background-color: #007bff;
     color: #ffffff;
     border: none;
     border-radius: 4px;
-    padding: 5px 10px;
+    padding: 4px 8px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: .8em;
 }
 
-.ticket button:hover {
+.ticket button:hover,
+.attachmentsList button:hover {
     background-color: #0056b3;
 }
 
-.main-info-sect section {
-    margin-bottom: 12px;
+.attachmentsList {
+    display: flex;
+    align-items: center;
+
+    font-size: .8em;
 }
+
+.attachment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
