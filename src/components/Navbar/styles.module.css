@@ -29,7 +29,7 @@
     flex: 1;
     /* Allow header to fill remaining space after sidebar */
     padding: 10px;
-    height: 48px;
+    height: 38px;
     z-index: 1000;
     background-color: #262626;
 }
@@ -42,12 +42,12 @@
 }
 
 .nav-logo img {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
 }
 
 .nav-logo h1 {
-    font-size: 1.2rem;
+    font-size: .9rem;
     font-weight: bold;
 }
 
@@ -60,7 +60,7 @@
     color: #fff;
     /* White text color */
     position: fixed;
-    top: 48px;
+    top: 38px;
     /* Calculate top position based on header height */
     /* Position sidebar at the top of the viewport */
     bottom: 0;

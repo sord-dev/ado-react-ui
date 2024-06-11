@@ -34,7 +34,7 @@ const Table = ({ columns, data, handleClickRow, setSelected }) => {
             <table className={styles.table}>
                 <thead>
                     <tr>
-                        <th>
+                        <th className={styles.headerCell}>
                             <input
                                 className={styles.headerCell}
                                 type="checkbox"
@@ -67,7 +67,11 @@ const Table = ({ columns, data, handleClickRow, setSelected }) => {
                             </td>
                             {columns.map((column, colIndex) => (
                                 <td key={colIndex} className={styles.cell}>
-                                    {row[column.field]}
+                                    {column.render
+                                        ? column.render(row[column.field])
+                                        : Array.isArray(row[column.field])
+                                        ? row[column.field].join(', ')
+                                        : row[column.field]}
                                 </td>
                             ))}
                         </tr>
@@ -82,11 +86,13 @@ Table.propTypes = {
     columns: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string.isRequired,
-            field: PropTypes.string.isRequired
+            field: PropTypes.string.isRequired,
+            render: PropTypes.func
         })
     ).isRequired,
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
-    handleClickRow: PropTypes.func.isRequired
+    handleClickRow: PropTypes.func.isRequired,
+    setSelected: PropTypes.func.isRequired
 };
 
 export default Table;

@@ -14,17 +14,18 @@
 
 .headerCell {
     background-color: #f0f0f0;
-    padding: 12px;
+    padding: 6px;
     border-bottom: 1px solid #c8c8c8;
     text-align: left;
     font-weight: 600;
-    color: #333333;
+    font-size: small;
 }
 
 .headerCell:first-child {
     border-left: 2px solid #c8c8c8;
     padding: 6px;
     max-width: max-content;
+    text-align: center;
 }
 
 .row {

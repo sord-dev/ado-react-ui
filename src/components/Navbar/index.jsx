@@ -28,7 +28,7 @@ const Navbar = ({ version }) => {
                     <input type="text" placeholder='Search Task Item ID, Title or Workbench Service' />
                 </div>
 
-                <Avatar name="John Doe" email="john.doe@cqc.org.uk" backgroundColor='#177532' />
+                <Avatar name="John Doe" email="john.doe@cqc.org.uk" backgroundColor='#177532' popout scale='.8'/>
             </header>
         </nav>
     );
