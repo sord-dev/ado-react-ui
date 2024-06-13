@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import wbIcon from '/workbench-icon.svg'
 import { Link } from 'react-router-dom';
 import Avatar from '../Avatar';
+import { useAuthContext } from '../../contexts/authContext';
 
 
 const NavbarDefaultState = {
@@ -10,6 +11,8 @@ const NavbarDefaultState = {
 }
 
 const Navbar = ({ version }) => {
+    const { user, handleLogout } = useAuthContext();
+
     return (
         <nav className={styles.navbar}>
             <SideNav />
@@ -28,7 +31,7 @@ const Navbar = ({ version }) => {
                     <input type="text" placeholder='Search Task Item ID, Title or Workbench Service' />
                 </div>
 
-                <Avatar name="John Doe" email="john.doe@cqc.org.uk" backgroundColor='#177532' popout scale='.8'/>
+                <Avatar name={user.name} email={user.email} backgroundColor='#177532' popout onPopoutClose={handleLogout} scale='.8'/>
             </header>
         </nav>
     );

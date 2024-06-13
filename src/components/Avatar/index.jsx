@@ -21,7 +21,7 @@ const useOutsideClick = (callback) => {
     return ref;
 };
 
-const Avatar = ({ name, email, backgroundColor, popout = false, scale = '1', textColor }) => {
+const Avatar = ({ name, email, backgroundColor, popout = false, onPopoutClose, scale = '1', textColor }) => {
     const [isProfileClicked, setIsProfileClicked] = useState(false);
     const initials = convertNameToInitials(name);
 
@@ -44,17 +44,17 @@ const Avatar = ({ name, email, backgroundColor, popout = false, scale = '1', tex
                 </div>
             </div>
 
-           {popout && <PopoutMenu name={name} email={email} isProfileClicked={isProfileClicked} backgroundColor={backgroundColor} />}
+           {popout && <PopoutMenu {...{name, email, isProfileClicked, backgroundColor, onPopoutClose}} />}
         </div>
     );
 };
 
-const PopoutMenu = ({ name, email, isProfileClicked, backgroundColor }) => {
+const PopoutMenu = ({ name, email, isProfileClicked, backgroundColor, onPopoutClose }) => {
     const initials = convertNameToInitials(name);
     return (isProfileClicked && (
         <div className={styles['profile-dropdown']}>
             <header className={styles['profile-dropdown-header']}>
-                <span>Sign Out</span>
+                <span onClick={onPopoutClose}>Sign Out</span>
             </header>
 
             <div className={styles['profile-dropdown-info']}>

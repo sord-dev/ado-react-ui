@@ -25,10 +25,6 @@ const Home = () => {
                     <h1>528</h1>
                 </div>
 
-                <div className={styles['info-pane']}>
-                    <h3>Completed Work Items</h3>
-                    <h1>528</h1>
-                </div>
             </section>
         </div>
     );
