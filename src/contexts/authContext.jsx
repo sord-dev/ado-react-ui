@@ -57,7 +57,7 @@ export const AuthContextProvider = ({ children }) => {
 
     useEffect(() => {
         console.log('User:', user);
-        if (user.token.value === '' || user.token.expires < new Date()) {
+        if (user.token.expires != '' && user.token.expires < new Date()) {
             handleLogout();
         }
     }, [user]);
