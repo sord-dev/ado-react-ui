@@ -6,6 +6,9 @@ import defaultData from './default.json';
 import { processTaskData } from './utils';
 import { QAButton } from '..';
 import { AttachmentsList, TicketsList } from './partials';
+import QuickActionGrid from '../QuickActionGrid';
+import { CopyTaskItemForm } from '../Forms';
+
 
 const WorkItem = ({ task = defaultData, openModal }) => {
     const { id } = useParams();
@@ -24,6 +27,10 @@ const WorkItem = ({ task = defaultData, openModal }) => {
         taskUrl,
         attachments
     } = processTaskData(task);
+
+    const handleSubmit = (data) => {
+        console.log('Form submitted!', data);
+    }
 
     return (
         <div className={styles['task-item']}>
@@ -77,15 +84,17 @@ const WorkItem = ({ task = defaultData, openModal }) => {
 
                 <div className={styles['bay-1']}>
                     <h2>Quick Actions</h2>
-                    <div>
+
+                    <QuickActionGrid>
                         <QAButton
                             label='Start Deployment'
                             info={'start a deployment based off of a task item, and have it complete upon a successful run'}
                             action={() => { openModal('ExampleForm', task.id) }}
                         />
-                        <QAButton label='Copy Task Item' />
+                        <QAButton label='Copy Task Item' action={() => { openModal(<CopyTaskItemForm handleFormSubmit={handleSubmit} />) }} />
                         <QAButton label='Search Related Items' />
-                    </div>
+                    </QuickActionGrid>
+
                 </div>
             </section>
         </div>

@@ -7,10 +7,10 @@ const Modal = ({ isOpen, onClose, children }) => {
     }
 
     return (
-        <div className={styles["modal"]}>
-            <div className={styles["modal-content"]} >
+        <div className={styles["modal"]} onClick={() => onClose()}>
+            <div className={styles["modal-content"]} onClick={(e) => e.stopPropagation()}>
                 <button className={styles["close-button"]} onClick={onClose}>
-                    Close
+                    X
                 </button>
                 {children}
             </div>

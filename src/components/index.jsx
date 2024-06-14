@@ -4,7 +4,7 @@ export { default as TaskItem } from './TaskItem';
 export { default as Breadcrum } from './Breadcrum';
 export { default as QAButton } from './QuickActionButton';
 export { default as Modal } from './Modal';
-export { default as Forms } from './MultiStepForm';
+export * from './MultiStepForm';
 export { default as Avatar } from './Avatar';
 export { default as MSSignInButton } from './MSSignInButton';
 export { default as ProtectedRoute } from './ProtectedRoute';

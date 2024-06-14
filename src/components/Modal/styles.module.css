@@ -24,4 +24,8 @@
     top: 10px;
     right: 10px;
     cursor: pointer;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.226);
+    padding: 3px;
+    border-radius: 4px;
 }

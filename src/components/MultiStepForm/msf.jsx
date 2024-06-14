@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css';
 
-const MultiStepForm = ({ steps }) => {
+const MultiStepForm = ({ steps, handleFormSubmit, taskId }) => {
     const [currentStep, setCurrentStep] = useState(0);
     const [formData, setFormData] = useState({});
 
@@ -20,8 +20,7 @@ const MultiStepForm = ({ steps }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission here
-        console.log(formData);
+        handleFormSubmit({ data: formData, taskId });
     };
 
     const renderStep = () => {

@@ -1,38 +1,43 @@
 .container {
     position: relative;
     margin-bottom: 10px;
-}
-
-.buttonContainer {
-    display: flex;
+  }
+  
+  .buttonContainer {
     gap: 10px;
     align-items: center;
     position: relative;
-}
-
-.error {
+  }
+  
+  .error {
     position: absolute;
     top: -6px;
     left: 0;
     color: #ff0000;
-    font-size: .6rem;
-}
-
-.button {
-    padding: 6px 12px;
+    font-size: 0.6rem;
+  }
+  
+  .button {
+    padding: 12px 16px; /* Increased padding */
     background-color: #007bff;
     color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.button:hover {
+    font-size: .6rem; /* Ensure consistent font size */
+    margin: 5px; /* Add margin to separate buttons */
+    flex: 1; /* Ensure buttons grow to fill the available space */
+    width: 110px;
+    height: 55px;
+    text-align: center;
+  }
+  
+  .button:hover {
     background-color: #0056b3;
-}
-
-.info {
+  }
+  
+  .info {
     background-color: #f0f0f0;
     padding: 12px;
     max-width: 150px;
@@ -41,21 +46,23 @@
     font-weight: 600;
     color: #000000;
     position: absolute;
-    bottom: 75%;
-    left: 50%;
-    font-size: .6em;
+    bottom: 100%;
+    font-size: 0.6em;
     z-index: 99;
-    opacity: .8;
-}
-
-.info-icon {
+    opacity: 0.8;
+  }
+  
+  .info-icon {
     width: 16px;
     height: 16px;
+    position: absolute;
+    top: -5px;
+    right: -3px;
     border-radius: 50%;
     background-color: #007bff;
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: .5em;
-}
+    font-size: 0.5em;
+  }

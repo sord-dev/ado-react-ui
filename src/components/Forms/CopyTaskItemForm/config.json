@@ -1,0 +1,17 @@
+[
+    {
+        "value": "projectToProject",
+        "label": "Project to Project",
+        "description": "Copy a task item from one DevOps project to another."
+    },
+    {
+        "value": "organizationToOrganization",
+        "label": "Organization to Organization",
+        "description": "Copy a task item from one DevOps organization to another."
+    },
+    {
+        "value": "copyToClipboard",
+        "label": "Copy Item Details to Clipboard",
+        "description": "Copy the details of a task item to the clipboard."
+    }
+]

@@ -1,5 +1,5 @@
-import { ExampleForm } from './forms'
+import MultiStepForm from './msf'
 
 export default {
-    ExampleForm
+    MultiStepForm
 }
