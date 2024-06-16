@@ -1,3 +1,6 @@
+import taskItem from '/task-item.svg'
+import userStory from '/user-story.svg'
+
 // Simple hash function (djb2)
 const hashString = (str) => {
     let hash = 5381;
@@ -20,3 +23,14 @@ export const uuidToHexColor = (uuid) => {
 export const generateHexColor = () => {
     return "#000000".replace(/0/g,function(){return (~~(Math.random()*16)).toString(16);});
 };
+
+export const returnWorkItemIcon = (type) => {
+    switch (type) {
+        case 'Task':
+            return taskItem;
+        case 'User Story':
+            return userStory;
+        default:
+            return taskItem;
+    }
+}

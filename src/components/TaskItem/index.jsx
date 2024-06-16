@@ -1,5 +1,4 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import styles from './styles.module.css';
 
 import defaultData from './default.json';
@@ -9,11 +8,11 @@ import { AttachmentsList, TicketsList } from './partials';
 import QuickActionGrid from '../QuickActionGrid';
 import { CopyTaskItemForm } from '../Forms';
 
-
 const WorkItem = ({ task = defaultData, openModal }) => {
-    const { id } = useParams();
+    if (!task) return null;
 
     const {
+        id,
         title,
         type,
         icon,
@@ -47,19 +46,32 @@ const WorkItem = ({ task = defaultData, openModal }) => {
                 </div>
 
                 <section className={styles['details-bar']}>
-                    <div className={styles['assigned-to']}>
-                        <p>Assigned to:</p>
-                        <img src={imageUrl} alt={`${displayName}'s avatar`} />
-                        <p>{displayName}</p>
-                    </div>
 
+                    <div>
+                        <div className={styles['assigned-to']}>
+                            <p>Assigned to:</p>
+                            <img src={imageUrl} alt={`${displayName}'s avatar`} />
+                            <p>{displayName}</p>
+                        </div>
+
+                        <QuickActionGrid>
+                            <QAButton
+                                label='Start Deployment'
+                                info={'start a deployment based off of a task item, and have it complete upon a successful run'}
+                                action={() => { openModal('ExampleForm', task.id) }}
+                            />
+                            <QAButton label='Copy Task Item' action={() => { openModal(<CopyTaskItemForm handleFormSubmit={handleSubmit} />) }} />
+                            <QAButton label='Search Related Items' />
+                        </QuickActionGrid>
+
+                    </div>
                     <div className={styles['task-details']}>
                         <p>State: {state}</p>
                         <p>Priority: {priority}</p>
                         <p>Created: {createdDate}</p>
                         <p>Last Updated: {changedDate}</p>
                         <p>Comments: {commentCount}</p>
-                        <p>Attachments: {attachments.length}</p>
+                        <p>Attachments: {attachments?.length || 0}</p>
                     </div>
 
                 </section>
@@ -83,17 +95,7 @@ const WorkItem = ({ task = defaultData, openModal }) => {
                 </div>
 
                 <div className={styles['bay-1']}>
-                    <h2>Quick Actions</h2>
-
-                    <QuickActionGrid>
-                        <QAButton
-                            label='Start Deployment'
-                            info={'start a deployment based off of a task item, and have it complete upon a successful run'}
-                            action={() => { openModal('ExampleForm', task.id) }}
-                        />
-                        <QAButton label='Copy Task Item' action={() => { openModal(<CopyTaskItemForm handleFormSubmit={handleSubmit} />) }} />
-                        <QAButton label='Search Related Items' />
-                    </QuickActionGrid>
+                    <h2>Other Task Data</h2>
 
                 </div>
             </section>

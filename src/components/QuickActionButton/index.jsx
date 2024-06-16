@@ -10,7 +10,7 @@ const Button = ({ action, label, error, info }) => {
             {error && <div className={styles.error}>{error}</div>}
 
             <div className={styles.buttonContainer}>
-                <button className={styles.button} onClick={() => action()}>
+                <button className={styles.button} onClick={() => action()} type='button'>
                     {label}
                 </button>
 
@@ -27,7 +27,7 @@ const Button = ({ action, label, error, info }) => {
 };
 
 Button.propTypes = {
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func,
     label: PropTypes.string.isRequired,
     error: PropTypes.string // Optional error message
 };

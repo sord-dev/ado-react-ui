@@ -17,7 +17,9 @@ export const AuthContextProvider = ({ children }) => {
     const cachedUser = localStorage.getItem('user');
 
     if (cachedUser) {
-        defaultUser = JSON.parse(cachedUser);
+        const savedUser = JSON.parse(cachedUser);
+        if (savedUser.token.expires < new Date()) localStorage.removeItem('user');
+        else defaultUser = JSON.parse(cachedUser);
     }
 
     const [user, setUser] = useState(defaultUser);

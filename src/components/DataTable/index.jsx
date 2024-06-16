@@ -67,11 +67,7 @@ const Table = ({ columns, data, handleClickRow, setSelected }) => {
                             </td>
                             {columns.map((column, colIndex) => (
                                 <td key={colIndex} className={styles.cell}>
-                                    {column.render
-                                        ? column.render(row[column.field])
-                                        : Array.isArray(row[column.field])
-                                        ? row[column.field].join(', ')
-                                        : row[column.field]}
+                                    {column.render ? column.render(row[column.field]) : row[column.field]}
                                 </td>
                             ))}
                         </tr>

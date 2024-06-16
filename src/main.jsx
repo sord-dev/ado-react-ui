@@ -7,6 +7,7 @@ import { PublicClientApplication } from '@azure/msal-browser';
 import { msalConfig } from './config.js';
 import { MsalProvider } from '@azure/msal-react';
 import { AuthContextProvider } from './contexts/authContext.jsx';
+import { AppContextProvider } from './contexts/appContext.jsx';
 
 const msalInstance = new PublicClientApplication(msalConfig);
 
@@ -15,7 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <MsalProvider instance={msalInstance}>
         <AuthContextProvider>
-          <App />
+          <AppContextProvider>
+            <App />
+          </AppContextProvider>
         </AuthContextProvider>
       </MsalProvider>
     </BrowserRouter>

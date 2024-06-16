@@ -21,7 +21,7 @@ export function AttachmentsList({ attachments = [] }) {
                     ))}
                 </div>
             ) : (
-                <p>No attachments</p>
+                <p className={styles.noAttachments}>No attachments</p>
             )
             }
         </section>
@@ -41,7 +41,7 @@ export function TicketsList({ tickets = defaultTicketsData }) {
             <h2>Linked Tickets</h2>
             <div>
                 {tickets.length > 0 && tickets.map(ticket => (
-                    <div className={styles.ticket}>
+                    <div key={`${ticket.type}-${ticket.id}`} className={styles.ticket}>
                         <div>
                             <h4>{ticket.type}</h4>
                             <p>{ticket.id}</p>
