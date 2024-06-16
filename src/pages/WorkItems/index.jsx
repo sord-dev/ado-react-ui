@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { DataTable } from '../../components';
 
 import { columns } from './config';
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../contexts/appContext';
+import { adoAPI } from '../../utils';
+import { useAuthContext } from '../../contexts/authContext';
 
 const WorkItems = () => {
     const navigate = useNavigate();
     const { appState, handleSelectedWorkItem } = useAppContext();
+    const { user } = useAuthContext();
+
 
     const workItemsData = appState.workItems.map((workItem) => {
         const item = workItem.fields
@@ -26,20 +30,25 @@ const WorkItems = () => {
 
 
     const handleClickRow = (row) => {
-        // Do something with the row data
-        console.log('Clicked Rows: ', appState.workItems[row])
-        handleSelectedWorkItem(appState.workItems[row])
-        navigate('/work-items/' + appState.workItems[row].id)
+        const selected = appState.workItems[row]
+
+        handleSelectedWorkItem(selected.id)
+        navigate('/work-items/' + selected.id)
     }
 
-    const handleSelectedRows = (row) => {
-        // Do something with the row data
-        console.log('Selected Rows: ', row)
+    const handleSelectedRowChange = (rows) => {
+        console.log('Selected Rows: ', rows)
     }
+
+    useEffect(() => {
+        adoAPI.getTasks(user.token.value).then((data) => {
+            console.log('Tasks:', data)
+        })
+    }, [' '])
 
     return (
         <div>
-            <DataTable {...{ data: workItemsData, columns, handleClickRow, setSelected: handleSelectedRows }} />
+            <DataTable {...{ data: workItemsData, columns, handleClickRow, setSelected: handleSelectedRowChange }} />
         </div>
     );
 };

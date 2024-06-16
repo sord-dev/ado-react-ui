@@ -1,6 +1,9 @@
 import taskItem from '/task-item.svg'
 import userStory from '/user-story.svg'
 
+import { v1 as adoAPI } from './ado-workbench-api';
+export { adoAPI }; // Export ADO Workbench API client
+
 // Simple hash function (djb2)
 const hashString = (str) => {
     let hash = 5381;

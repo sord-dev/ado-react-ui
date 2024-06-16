@@ -12,7 +12,9 @@ const Table = ({ columns, data, handleClickRow, setSelected }) => {
             : [...selectedRows, rowIndex];
 
         setSelectedRows(newSelectedRows);
-        setSelected(newSelectedRows); // Pass selected rows to parent component
+
+        const selected = newSelectedRows.map((row) => data[row]);
+        setSelected(selected); // Pass selected rows to parent component
     };
 
     const handleSelectAll = () => {

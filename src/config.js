@@ -13,3 +13,7 @@ export const msalConfig = {
 export const loginRequest = {
     scopes: ["User.Read"] // Add the scopes your application needs
 };
+
+export const clientAPIConfig = {
+    resourceUri: "http://localhost:3001/api",
+};
