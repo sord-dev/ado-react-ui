@@ -44,6 +44,8 @@
 
 .task-title-name:hover {
     border: 1px solid rgb(122, 122, 122);
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .task-description {
@@ -65,6 +67,10 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 12px;
+}
+
+.details-bar div {
+    margin-bottom: 6px;
 }
 
 .assigned-to {
@@ -93,11 +99,25 @@
     border-radius: 4px;
 }
 
+.task-details span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: .8em;
+}
 
 .task-details p {
+    flex: 1;
     font-size: .8em;
     background-color: rgb(223, 223, 223);
-    padding: 4px 8px;
+    padding: 2px 4px;
+}
+
+.quick-action-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    padding: 10px;
 }
 
 .task-links {

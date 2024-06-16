@@ -53,3 +53,28 @@ export function TicketsList({ tickets = defaultTicketsData }) {
         </section>
     )
 }
+
+export function DetailsGrid({ children }) {
+    return (
+        <section className={styles['task-details']}>
+            {children}
+        </section>
+    )
+}
+
+export function Detail({ label, value }) {
+    return (
+        <span>
+            {label}: <p>{value}</p>
+        </span>
+    )
+}
+
+
+export const QuickActionGrid = ({ children }) => {
+    return (
+      <div className={styles["quick-action-grid"]}>
+          {children}
+      </div>
+    );
+  };

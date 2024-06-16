@@ -4,8 +4,7 @@ import styles from './styles.module.css';
 import defaultData from './default.json';
 import { processTaskData } from './utils';
 import { QAButton } from '..';
-import { AttachmentsList, TicketsList } from './partials';
-import QuickActionGrid from '../QuickActionGrid';
+import { AttachmentsList, Detail, DetailsGrid, QuickActionGrid, TicketsList } from './partials';
 import { CopyTaskItemForm } from '../Forms';
 
 const WorkItem = ({ task = defaultData, openModal }) => {
@@ -36,7 +35,7 @@ const WorkItem = ({ task = defaultData, openModal }) => {
 
             <header className={styles['task-item-header']}>
                 <div className={styles['task-type']}>
-                    <img src={icon} alt={`${type} icon`} />
+                    <img src={icon} alt={`${type} icon`} draggable='false' />
                     <p>{type}</p>
                 </div>
 
@@ -54,6 +53,18 @@ const WorkItem = ({ task = defaultData, openModal }) => {
                             <p>{displayName}</p>
                         </div>
 
+                        <DetailsGrid>
+                            <Detail label='State' value={state} />
+                            <Detail label='Priority' value={priority} />
+                            <Detail label='Created' value={createdDate} />
+                            <Detail label='Last Updated' value={changedDate} />
+                            <Detail label='Comments' value={commentCount} />
+                            <Detail label='Attachments' value={attachments?.length || 0} />
+                        </DetailsGrid>
+                    </div>
+
+                    <div>
+
                         <QuickActionGrid>
                             <QAButton
                                 label='Start Deployment'
@@ -65,14 +76,7 @@ const WorkItem = ({ task = defaultData, openModal }) => {
                         </QuickActionGrid>
 
                     </div>
-                    <div className={styles['task-details']}>
-                        <p>State: {state}</p>
-                        <p>Priority: {priority}</p>
-                        <p>Created: {createdDate}</p>
-                        <p>Last Updated: {changedDate}</p>
-                        <p>Comments: {commentCount}</p>
-                        <p>Attachments: {attachments?.length || 0}</p>
-                    </div>
+
 
                 </section>
             </header>
