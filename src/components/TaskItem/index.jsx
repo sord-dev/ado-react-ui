@@ -34,10 +34,9 @@ const WorkItem = ({ task = defaultData, openModal }) => {
 
     return (
         <div className={styles['task-item']}>
-
-            <header className={styles['task-item-header']}>
-
-                <div className={`${styles.banner}`}>
+            
+            <div className={`${styles.banner}`}>
+                <div className={styles['task-title-container']}>
                     <div className={`${styles.band} ${styles[witDynamicClassName]}`} />
                     <div className={styles[`task-type`]}>
                         <img src={icon} alt={`${type} icon`} draggable='false' />
@@ -50,42 +49,46 @@ const WorkItem = ({ task = defaultData, openModal }) => {
                     </div>
                 </div>
 
-                <section className={styles['details-bar']}>
+                <div className={styles['task-actions']}>
+                    <div>action</div>
+                    <div>action</div>
+                    <div>action</div>
+                </div>
 
-                    <div>
-                        <div className={styles['assigned-to']}>
-                            <p>Assigned to:</p>
-                            <img src={imageUrl} alt={`${displayName}'s avatar`} />
-                            <p>{displayName}</p>
-                        </div>
 
-                        <DetailsGrid>
-                            <Detail label='State' value={state} />
-                            <Detail label='Priority' value={priority} />
-                            <Detail label='Created' value={createdDate} />
-                            <Detail label='Last Updated' value={changedDate} />
-                            <Detail label='Comments' value={commentCount} />
-                            <Detail label='Attachments' value={attachments?.length || 0} />
-                        </DetailsGrid>
+            </div>
+
+            <section className={styles['details-bar']}>
+                <div>
+                    <div className={styles['assigned-to']}>
+                        <p>Assigned to:</p>
+                        <img src={imageUrl} alt={`${displayName}'s avatar`} />
+                        <p>{displayName}</p>
                     </div>
 
-                    <div>
+                    <DetailsGrid>
+                        <Detail label='State' value={state} />
+                        <Detail label='Priority' value={priority} />
+                        <Detail label='Created' value={createdDate} />
+                        <Detail label='Last Updated' value={changedDate} />
+                        <Detail label='Comments' value={commentCount} />
+                        <Detail label='Attachments' value={attachments?.length || 0} />
+                    </DetailsGrid>
+                </div>
 
-                        <QuickActionGrid>
-                            <QAButton
-                                label='Start Deployment'
-                                info={'start a deployment based off of a task item, and have it complete upon a successful run'}
-                                action={() => { openModal('ExampleForm', task.id) }}
-                            />
-                            <QAButton label='Copy Task Item' action={() => { openModal(<CopyTaskItemForm handleFormSubmit={handleSubmit} />) }} />
-                            <QAButton label='Search Related Items' />
-                        </QuickActionGrid>
+                <div>
+                    <QuickActionGrid>
+                        <QAButton
+                            label='Start Deployment'
+                            info={'start a deployment based off of a task item, and have it complete upon a successful run'}
+                            action={() => { openModal('ExampleForm', task.id) }}
+                        />
+                        <QAButton label='Copy Task Item' action={() => { openModal(<CopyTaskItemForm handleFormSubmit={handleSubmit} />) }} />
+                        <QAButton label='Search Related Items' />
+                    </QuickActionGrid>
+                </div>
+            </section>
 
-                    </div>
-
-
-                </section>
-            </header>
 
             <section className={styles['main-info-sect']}>
 

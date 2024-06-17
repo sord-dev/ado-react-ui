@@ -25,7 +25,7 @@ const Attachment = ({ attachment }) => {
 
 
     return (
-        <div className={styles.attachment}>
+        <div className={styles.attachment} key={`${attachment.name}-key`}>
             <div>
                 <h4>{attachment.name}</h4>
                 <p>{attachmentSize(attachment.size)}</p>

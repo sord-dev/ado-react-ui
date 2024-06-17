@@ -58,12 +58,11 @@ export const AuthContextProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        console.log('User:', user);
         if (user.token.expires != '' && new Date(user.token.expires) < new Date()) {
             console.log('Token Expired:', user.token.expires)
             handleLogout();
         }
-    }, [user]);
+    }, []);
 
     return (
         <AuthContext.Provider value={{ user, handleLogin, handleLogout }}>

@@ -12,9 +12,6 @@
     height: 100%;
 }
 
-.task-item-header {
-    padding: 12px;
-}
 
 .task-item h2 {
     font-size: 16px;
@@ -26,6 +23,37 @@
     color: #0078d4;
     margin-bottom: 16px;
 }
+
+.band {
+    border-left: 6px solid black;
+    position: absolute;
+    height: 100%;
+}
+
+.band.task {
+    border-color: var(--task-item-color);
+    /* Example color for task-item */
+}
+
+.band.user-story {
+    border-color: var(--user-story-color);
+    /* Example color for user-story */
+}
+
+/* Additional dynamic classes */
+.band.bug {
+    border-color: var(--bug-item-color);
+    /* Example color for bug */
+}
+
+.task-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    align-items: center;
+    padding: 12px;
+}
+
 
 .main-info-sect {
     padding: 12px;
@@ -44,14 +72,12 @@
 
 .task-title-name {
     font-size: 16px;
-    margin: 0;
-    padding: 2px 4px;
     border: 1px solid transparent;
     border-radius: 4px;
 }
 
 .task-title-name:hover {
-    border: 1px solid rgb(122, 122, 122);
+    border-color: rgb(122, 122, 122);
     text-decoration: underline;
     cursor: pointer;
 }
@@ -75,6 +101,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 12px;
+    padding: 6px 12px;
 }
 
 .details-bar div {
@@ -162,6 +189,7 @@
     gap: 1px;
     font-size: .8em;
     margin-left: 6px;
+    margin-top: 6px;
 }
 
 .task-type img {
@@ -235,28 +263,9 @@
 
 .banner {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
+    padding-right: 6px;
 }
 
-.band {
-    border-left: 6px solid black;
-    position: absolute;
-    height: 100%;
-}
-
-.band.task {
-    border-color: var(--task-item-color);
-    /* Example color for task-item */
-}
-
-.band.user-story {
-    border-color: var(--user-story-color);
-    /* Example color for user-story */
-}
-
-/* Additional dynamic classes */
-.band.bug {
-    border-color: var(--bug-item-color);
-    /* Example color for bug */
-}
