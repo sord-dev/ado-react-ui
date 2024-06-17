@@ -12,14 +12,14 @@ const WorkItem = () => {
     const {appState} = useAppContext();
     const {user} = useAuthContext();
 
-    const workItem = appState.workItems.find(workItem => workItem.id == id);
+    const [workItem, setWorkItem] = useState(appState.workItems.find(workItem => workItem.id == id));
 
     const handleOpenModal = (form) => updateModalState({ open: true, form });
     const handleCloseModal = () => updateModalState({ open: false, form: ''})
 
     useEffect(() => {
-        adoAPI.getTaskById(id,user.token.value).then((data) => {
-            console.log('Task:', data.data)
+        adoAPI.getTaskById(id,user.token.value).then((response) => {
+            setWorkItem(response.data);
         })
     }, [' '])
 

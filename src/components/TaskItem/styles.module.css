@@ -1,3 +1,10 @@
+:root {
+    --task-item-color: #a4880a;
+    --user-story-color: #0098c7;
+    --bug-item-color: #d80000;
+    --epic-item-color: #ff8c00;
+}
+
 .task-item {
     border-radius: 4px;
     background-color: #ffffff;
@@ -32,6 +39,7 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    margin-left: 8px;
 }
 
 .task-title-name {
@@ -92,8 +100,10 @@
 
 .task-details {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    grid-template-rows: repeat(2, 1fr);   /* 2 rows */
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    grid-template-rows: repeat(2, 1fr);
+    /* 2 rows */
     gap: 8px;
     font-size: .9em;
     border-radius: 4px;
@@ -151,6 +161,7 @@
     align-items: center;
     gap: 1px;
     font-size: .8em;
+    margin-left: 6px;
 }
 
 .task-type img {
@@ -220,4 +231,32 @@
     font-size: .8em;
     color: #777;
     margin: 0;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.band {
+    border-left: 6px solid black;
+    position: absolute;
+    height: 100%;
+}
+
+.band.task {
+    border-color: var(--task-item-color);
+    /* Example color for task-item */
+}
+
+.band.user-story {
+    border-color: var(--user-story-color);
+    /* Example color for user-story */
+}
+
+/* Additional dynamic classes */
+.band.bug {
+    border-color: var(--bug-item-color);
+    /* Example color for bug */
 }

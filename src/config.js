@@ -11,7 +11,7 @@ export const msalConfig = {
 };
 
 export const loginRequest = {
-    scopes: ["User.Read"] // Add the scopes your application needs
+    scopes: [import.meta.env.VITE_ADO_REQUESTED_SCOPE] // Add the scopes your application needs
 };
 
 export const clientAPIConfig = {

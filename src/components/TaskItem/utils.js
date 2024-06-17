@@ -22,6 +22,7 @@ export const processTaskData = (task) => {
         attachments: task.relations?.filter(relation => relation.rel === 'AttachedFile').map(relation => ({
             id: relation.attributes.id,
             name: relation.attributes.name,
+            size: relation.attributes.resourceSize,
             url: relation.url
         })),
         taskUrl: task._links?.html.href

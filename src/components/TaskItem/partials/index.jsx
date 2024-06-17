@@ -5,26 +5,36 @@ export function AttachmentsList({ attachments = [] }) {
     return (
         <section>
             <h2>Attachments</h2>
-            {attachments.length > 0 ? (
                 <div className={styles.attachmentsList}>
-                    {attachments.map(attachment => (
-                        <div className={styles.attachment}>
-                            <div>
-                                <h4>{attachment.name}</h4>
-                                <p>{attachment.size || '0kb'}</p>
-                            </div>
-
-                            <a href={attachment.url + `?fileName=${attachment.name}`} target="_blank" rel="noopener noreferrer">
-                                <button>Download</button>
-                            </a>
-                        </div>
-                    ))}
+                    {attachments?.length ? attachments.map(attachment => <Attachment {...{ attachment }} />) : null}
                 </div>
-            ) : (
-                <p className={styles.noAttachments}>No attachments</p>
-            )
-            }
         </section>
+    )
+}
+
+const Attachment = ({ attachment }) => {
+    const attachmentSize = (size) => {
+        if (size > 1000000) {
+            return `${(size / 1000000).toFixed(2)}mb`
+        } else if (size > 1000) {
+            return `${(size / 1000).toFixed(2)}kb`
+        } else {
+            return `${size}b`
+        }
+    }
+
+
+    return (
+        <div className={styles.attachment}>
+            <div>
+                <h4>{attachment.name}</h4>
+                <p>{attachmentSize(attachment.size)}</p>
+            </div>
+
+            <a href={attachment.url + `?fileName=${attachment.name}`} target="_blank" rel="noopener noreferrer">
+                <button>Download</button>
+            </a>
+        </div>
     )
 }
 
@@ -73,8 +83,8 @@ export function Detail({ label, value }) {
 
 export const QuickActionGrid = ({ children }) => {
     return (
-      <div className={styles["quick-action-grid"]}>
-          {children}
-      </div>
+        <div className={styles["quick-action-grid"]}>
+            {children}
+        </div>
     );
-  };
+};

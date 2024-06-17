@@ -30,18 +30,24 @@ const WorkItem = ({ task = defaultData, openModal }) => {
         console.log('Form submitted!', data);
     }
 
+    const witDynamicClassName = type.toLowerCase().split(' ').join('-');
+
     return (
         <div className={styles['task-item']}>
 
             <header className={styles['task-item-header']}>
-                <div className={styles['task-type']}>
-                    <img src={icon} alt={`${type} icon`} draggable='false' />
-                    <p>{type}</p>
-                </div>
 
-                <div className={styles['task-title']}>
-                    <h2>{id}</h2>
-                    <a href={taskUrl} target='_blank' rel='noreferrer' ><h2 className={styles['task-title-name']}>{title}</h2></a>
+                <div className={`${styles.banner}`}>
+                    <div className={`${styles.band} ${styles[witDynamicClassName]}`} />
+                    <div className={styles[`task-type`]}>
+                        <img src={icon} alt={`${type} icon`} draggable='false' />
+                        <p>{type}</p>
+                    </div>
+
+                    <div className={styles['task-title']}>
+                        <h2>{id}</h2>
+                        <a href={taskUrl} target='_blank' rel='noreferrer' ><h2 className={styles['task-title-name']}>{title}</h2></a>
+                    </div>
                 </div>
 
                 <section className={styles['details-bar']}>
@@ -94,7 +100,7 @@ const WorkItem = ({ task = defaultData, openModal }) => {
                 </div>
 
                 <div className={styles['bay-1']}>
-                    <AttachmentsList attachments={attachments} />
+                    {attachments?.length > 0 && <AttachmentsList attachments={attachments} />}
                     <TicketsList />
                 </div>
 

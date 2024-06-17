@@ -1,5 +1,9 @@
 :root {
   --header-height: 60px;
+  --task-item-color: #a4880a;
+  --user-story-color:#0098c7;
+  --bug-item-color: #d80000;
+  --epic-item-color: #ff8c00;
 }
 
 html{
