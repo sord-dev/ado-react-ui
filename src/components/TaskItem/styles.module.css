@@ -54,6 +54,14 @@
     padding: 12px;
 }
 
+.task-actions button {
+    color: #666666;
+    border: 1px solid #666666;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
 .main-info-sect {
     padding: 12px;

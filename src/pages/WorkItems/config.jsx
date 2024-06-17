@@ -1,3 +1,4 @@
+import { render } from 'react-dom';
 import { Avatar } from '../../components';
 import { returnWorkItemIcon, uuidToHexColor } from '../../utils';
 
@@ -17,15 +18,23 @@ const renderWorkItemType = (type) => {
     return <img style={{ width: '16px', height: '16px'}} src={returnWorkItemIcon(type)} alt={`${type} icon`} />
 }
 
+const renderTitle = (title) => {
+    if(!title) return null;
+    const maxLength = 67;
+        
+    if(title.length > maxLength) return <p title={title}>{title.substring(0, maxLength)}...</p>
+    return <p>{title}</p>
+}
+
 export const columns = [
-    { label: 'ID', field: 'System.Id', editable: false },
-    { label: 'Type', field: 'type', editable: false, render: renderWorkItemType},
-    { label: 'Title', field: 'System.Title', editable: false },
-    { label: 'Assigned To', field: 'System.', editable: false },
-    { label: 'State', field: 'state', editable: true },
+    { label: 'ID', field: 'System.Id' },
+    { label: 'Type', field: 'type', render: renderWorkItemType},
+    { label: 'Title', field: 'System.Title', render: renderTitle},
+    { label: 'Assigned To', field: 'System.' },
+    { label: 'State', field: 'state' },
     { label: 'Orginisations', field: 'orgs', render: renderOrgs },
-    { label: 'Priority', field: 'priority', editable: true },
-    { label: 'Created', field: 'created', editable: false },
-    { label: 'Last Updated', field: 'lastupdated', editable: false },
-    { label: 'Comments', field: 'comments', editable: false }
+    { label: 'Priority', field: 'priority' },
+    { label: 'Created', field: 'created' },
+    { label: 'Last Updated', field: 'lastupdated' },
+    { label: 'Comments', field: 'comments' }
 ];

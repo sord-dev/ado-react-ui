@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../../contexts/appContext';
 import { adoAPI } from '../../utils';
 import { useAuthContext } from '../../contexts/authContext';
+import useSEO from '../../hooks/useSEO';
 
 const WorkItems = () => {
     const navigate = useNavigate();
@@ -39,6 +40,11 @@ const WorkItems = () => {
     const handleSelectedRowChange = (rows) => {
         console.log('Selected Rows: ', rows)
     }
+
+    useSEO({
+        title: 'Work Items - ADO Workbench',
+        metadata: { description: 'A simple workbench for Azure DevOps' }
+    });
 
     useEffect(() => {
         adoAPI.getTasks(user.token.value).then((data) => {

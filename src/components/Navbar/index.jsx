@@ -1,21 +1,21 @@
 import React from 'react';
 import styles from './styles.module.css';
-import wbIcon from '/workbench-icon.svg'
-import { Link } from 'react-router-dom';
 import Avatar from '../Avatar';
+import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/authContext';
 
+import wbIcon from '/workbench-icon.svg'
 
 const NavbarDefaultState = {
     version: 'v0.0.1'
 }
 
-const Navbar = ({ version }) => {
+const Navbar = ({ version, appState }) => {
     const { user, handleLogout } = useAuthContext();
 
     return (
         <nav className={styles.navbar}>
-            <SideNav />
+            <SideNav appState={appState} />
             <header className={styles['nav-header']}>
 
                 <div className={styles['nav-logo']}>
@@ -38,12 +38,12 @@ const Navbar = ({ version }) => {
 
 }
 
-const SideNav = () => {
+const SideNav = ({ appState }) => {
     return (
         <div className={styles["side-nav"]}>
             <section>
                 <SideNavItem label="Home" to={'/'} />
-                <SideNavItem label="Work Items" hits={2192} to={'/work-items'} />
+                <SideNavItem label="Work Items" hits={appState.workItems?.length} to={'/work-items'} />
             </section>
 
             <section>

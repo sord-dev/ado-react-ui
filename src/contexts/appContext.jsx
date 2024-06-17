@@ -7,6 +7,7 @@ const AppContext = createContext(null);
 const defaultAppState = {
     workItems: defaultData.tasks,
     selectedWorkItem: null,
+    meta: { title: 'ADO Workbench' }
 }
 
 // Create a provider component
@@ -17,8 +18,12 @@ export const AppContextProvider = ({ children }) => {
     setAppState({ ...appState, selectedWorkItem: workItem });
   }
 
+  const handleAppTitle = (title) => {
+    setAppState({ ...appState, meta: {...appState.meta, title } });
+  }
+
   return (
-    <AppContext.Provider value={{ appState, handleSelectedWorkItem }}>
+    <AppContext.Provider value={{ appState, handleSelectedWorkItem, handleAppTitle }}>
       {children}
     </AppContext.Provider>
   );

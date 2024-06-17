@@ -50,9 +50,7 @@ const WorkItem = ({ task = defaultData, openModal }) => {
                 </div>
 
                 <div className={styles['task-actions']}>
-                    <div>action</div>
-                    <div>action</div>
-                    <div>action</div>
+                    <button>action</button>
                 </div>
 
 
