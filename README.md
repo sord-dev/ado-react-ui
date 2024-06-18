@@ -13,6 +13,8 @@ ADO Workbench is a comprehensive tool designed to enhance Azure DevOps (ADO) by 
     - Advanced bulk editing capabilities allowing for mass updates to fields, states, and assignments.
     - Customizable templates for bulk editing operations to save time on repetitive tasks.
     - Automation rules to trigger bulk edits based on specific conditions or events.
+  
+   ![image](https://github.com/sord-dev/ado-react-ui/assets/75338985/3761ef74-fbc3-43aa-9ca8-96750839d39e)
 
     **b. Intelligent Ticket Creation**
     - Integration with code analysis tools to automatically generate work items for detected issues.
@@ -24,7 +26,7 @@ ADO Workbench is a comprehensive tool designed to enhance Azure DevOps (ADO) by 
     - Detailed analytics on work item trends, team performance, and project health.
     - Exportable reports for stakeholders, with options for scheduled automatic reporting.
 
-2. **Release Management and Deployment**
+3. **Release Management and Deployment**
 
     **a. Simplified Environment Management**
     - Tools for easy creation, configuration, and teardown of test and deployment environments.
@@ -41,7 +43,7 @@ ADO Workbench is a comprehensive tool designed to enhance Azure DevOps (ADO) by 
     - Automated rollback triggers based on deployment monitoring and alerts.
     - Detailed logs and reports on rollback actions for audit purposes.
 
-3. **Collaboration and Communication**
+4. **Collaboration and Communication**
 
     **a. Improved Cross-Team Communication**
     - Integration with Slack, Microsoft Teams, and other communication platforms for real-time updates.
