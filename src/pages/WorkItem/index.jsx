@@ -6,6 +6,7 @@ import { useAppContext } from '../../contexts/appContext';
 import { adoAPI } from '../../utils';
 import { useAuthContext } from '../../contexts/authContext';
 import useSEO from '../../hooks/useSEO';
+import NotFound from '../NotFound';
 
 const WorkItem = () => {
     const [modalState, updateModalState] = useState({ open: false, form: '' });
@@ -13,7 +14,9 @@ const WorkItem = () => {
     const { appState } = useAppContext();
     const { user } = useAuthContext();
 
-    const [workItem, setWorkItem] = useState(appState.workItems.find(workItem => workItem.id == id));
+    const data = appState.workItems.find(workItem => workItem.id == id)
+    if(!data) return (<NotFound />)
+    const [workItem, setWorkItem] = useState(data);
 
     useSEO({
         title: `${workItem.fields['System.WorkItemType']} ${id} ${workItem.fields['System.Title']}`,

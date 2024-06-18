@@ -52,8 +52,8 @@ const SideNav = ({ appState }) => {
             </section>
 
             <section>
-                <SideNavItem label="Connections" hits={2} displayHits to={'/connections'} />
-                <SideNavItem label="Settings" />
+                <SideNavItem label="Connections" to={'/connections'} />
+                <SideNavItem label="Settings" to={'/settings'} />
             </section>
         </div>
     );
