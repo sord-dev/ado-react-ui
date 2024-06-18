@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './styles.module.css';
 
-import { DataTable, WITActionsBar } from '../../components';
+import { DataTable, Modal, WITActionsBar, TaskItem } from '../../components';
 
 import { columns } from './config';
 import { useNavigate } from 'react-router-dom';
@@ -10,12 +10,19 @@ import { adoAPI } from '../../utils';
 import { useAuthContext } from '../../contexts/authContext';
 import useSEO from '../../hooks/useSEO';
 
+
 const WorkItems = () => {
     const navigate = useNavigate();
     const { appState, handleUpdateWorkItems } = useAppContext();
     const { user } = useAuthContext();
 
     const [selectedRows, setSelectedRows] = React.useState([])
+
+    const [newTaskItemState, setNewTaskItemState] = React.useState({ data: {}, isOpen: false })
+
+    const handleNewTaskItem = () => {
+        setNewTaskItemState({ data: {}, isOpen: true })
+    }
 
     const workItemsData = appState.workItems.map((workItem) => {
         const item = workItem.fields
@@ -44,7 +51,7 @@ const WorkItems = () => {
 
     const onBatchAction = (action) => {
         const ids = selectedRows.map(row => row.id)
-        if(ids.length > 5) {
+        if (ids.length > 5) {
             // prompt user to confirm
             console.log(`confirm set work items ${ids.join(', ')} as ${action.label}`)
             console.log(`set work items ${ids.join(', ')} as ${action.label}`)
@@ -65,7 +72,7 @@ const WorkItems = () => {
                 const response = await adoAPI.getTasks(user.token.value);
                 handleUpdateWorkItems(response.data.value);
             } catch (error) {
-                if(error.response && error.response.status === 403) {
+                if (error.response && error.response.status === 403) {
                     console.error('Unauthorized:', error);
                     return;
                 }
@@ -80,9 +87,13 @@ const WorkItems = () => {
         <div className={styles.container}>
             <header>
                 <h2>Your Work Items</h2>
-                <WITActionsBar actions={[{label: 'Closed'}, {label: 'Active'}, {label: 'New'}]} {...{onBatchAction, selectedRows }}  />
+                <WITActionsBar actions={[{ label: 'Closed' }, { label: 'Active' }, { label: 'New' }]} {...{ onBatchAction, selectedRows, onCreateWorkItem: handleNewTaskItem }} />
             </header>
             <DataTable {...{ data: workItemsData, columns, handleClickRow, setSelected: handleSelectedRowChange }} />
+
+            <Modal isOpen={newTaskItemState.isOpen} onClose={() => setNewTaskItemState({ data: {}, isOpen: false })}>
+                <TaskItem />
+            </Modal>
         </div>
     );
 };

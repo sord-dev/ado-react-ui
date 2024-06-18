@@ -8,8 +8,6 @@
 }
 
 .modal-content {
-    width: 50%;
-    height: 50%;
     position: fixed;
     top: 50%;
     left: 50%;

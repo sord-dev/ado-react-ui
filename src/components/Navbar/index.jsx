@@ -39,11 +39,16 @@ const Navbar = ({ version, appState }) => {
 }
 
 const SideNav = ({ appState }) => {
+    const [open, setOpen] = React.useState(true);
+
     return (
         <div className={styles["side-nav"]}>
             <section>
                 <SideNavItem label="Home" to={'/'} />
                 <SideNavItem label="Work Items" hits={appState.workItems?.length} displayHits to={'/work-items'} />
+                <SideNavItem label="Templates" to={'/templates'} />
+                <SideNavItem label="Deployments" to={'/deployments'} />
+                <SideNavItem label="Workflows" to={'/workflows'} />
             </section>
 
             <section>

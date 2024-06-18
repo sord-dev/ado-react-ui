@@ -93,10 +93,6 @@ const WorkItem = ({ task = defaultData, openModal }) => {
                     <TicketsList />
                 </div>
 
-                <div className={styles['bay-1']}>
-                    <h2>Other Task Data</h2>
-
-                </div>
             </section>
         </div>
     );
