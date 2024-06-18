@@ -5,9 +5,9 @@ import WorkItems from './pages/WorkItems'
 import { useAppContext } from './contexts/appContext';
 
 // TODO: Implement WorkItemTemplates and WorkItemTemplateDetails
-// TODO: Implement Deployments, DeploymentsCalender, and DeploymentDetails
 // TODO: Implement Workflows, WorkflowCreate, and Workflow
 // TODO: Implement Connections and Settings
+// TODO: Implement Deployments, DeploymentsCalender, and DeploymentDetails
 
 function App() {
   const { appState } = useAppContext();
