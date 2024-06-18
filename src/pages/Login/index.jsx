@@ -4,10 +4,14 @@ import workbenchIcon from '/workbench-icon.svg';
 import { MSSignInButton } from '../../components';
 import { useAuthContext } from '../../contexts/authContext';
 
+import useSEO from '../../hooks/useSEO';
+
 const Login = () => {
     const { handleLogin } = useAuthContext();
     const tennantID = import.meta.env.VITE_AZURE_TENANT_ID;
     const tennantIDSnippet = tennantID.substring(0, 4) + '...' + tennantID.substring(tennantID.length - 4);
+
+    useSEO({ title: 'ADO Workbench - Login' });
 
     return (
         <div className={styles.container}>

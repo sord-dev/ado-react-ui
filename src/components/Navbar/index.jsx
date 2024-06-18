@@ -43,24 +43,24 @@ const SideNav = ({ appState }) => {
         <div className={styles["side-nav"]}>
             <section>
                 <SideNavItem label="Home" to={'/'} />
-                <SideNavItem label="Work Items" hits={appState.workItems?.length} to={'/work-items'} />
+                <SideNavItem label="Work Items" hits={appState.workItems?.length} displayHits to={'/work-items'} />
             </section>
 
             <section>
-                <SideNavItem label="Connections" hits={2} to={'/connections'} />
+                <SideNavItem label="Connections" hits={2} displayHits to={'/connections'} />
                 <SideNavItem label="Settings" />
             </section>
         </div>
     );
 };
 
-const SideNavItem = ({ label, to, hits }) => {
+const SideNavItem = ({ label, to, hits = 0, displayHits = false }) => {
     const converted = new Intl.NumberFormat().format(hits);
     return (
         <Link to={to}>
             <div className={styles["side-nav-item"]}>
                 <span>{label}</span>
-                {hits && <span className={styles["alert"]}>{converted}</span>}
+                {displayHits ? <span className={styles["alert"]}>{converted}</span> : null}
             </div>
         </Link>
     );

@@ -71,6 +71,7 @@ button {
 /* src\components\Navbar\styles.module.css */
 .main-container {  
   margin-left: 200px;
+  height: 90vh;
 }
 
 input[type="checkbox"]{

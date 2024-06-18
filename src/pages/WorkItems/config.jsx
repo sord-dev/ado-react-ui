@@ -20,7 +20,7 @@ const renderWorkItemType = (type) => {
 
 const renderTitle = (title) => {
     if(!title) return null;
-    const maxLength = 67;
+    const maxLength = 65;
         
     if(title.length > maxLength) return <p title={title}>{title.substring(0, maxLength)}...</p>
     return <p>{title}</p>

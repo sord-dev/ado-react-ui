@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
-import { DataTable } from '../../components';
+import styles from './styles.module.css';
+
+import { DataTable, WITActionsBar } from '../../components';
 
 import { columns } from './config';
 import { useNavigate } from 'react-router-dom';
@@ -10,9 +12,10 @@ import useSEO from '../../hooks/useSEO';
 
 const WorkItems = () => {
     const navigate = useNavigate();
-    const { appState, handleSelectedWorkItem } = useAppContext();
+    const { appState, handleUpdateWorkItems } = useAppContext();
     const { user } = useAuthContext();
 
+    const [selectedRows, setSelectedRows] = React.useState([])
 
     const workItemsData = appState.workItems.map((workItem) => {
         const item = workItem.fields
@@ -32,13 +35,23 @@ const WorkItems = () => {
 
     const handleClickRow = (row) => {
         const selected = appState.workItems[row]
-
-        handleSelectedWorkItem(selected.id)
         navigate('/work-items/' + selected.id)
     }
 
     const handleSelectedRowChange = (rows) => {
-        console.log('Selected Rows: ', rows)
+        setSelectedRows(rows)
+    }
+
+    const onBatchAction = (action) => {
+        const ids = selectedRows.map(row => row.id)
+        if(ids.length > 5) {
+            // prompt user to confirm
+            console.log(`confirm set work items ${ids.join(', ')} as ${action.label}`)
+            console.log(`set work items ${ids.join(', ')} as ${action.label}`)
+            return
+        }
+
+        console.log(`set work items ${ids.join(', ')} as ${action.label}`)
     }
 
     useSEO({
@@ -47,13 +60,28 @@ const WorkItems = () => {
     });
 
     useEffect(() => {
-        adoAPI.getTasks(user.token.value).then((data) => {
-            console.log('Tasks:', data)
-        })
+        const updateTasks = async () => {
+            try {
+                const response = await adoAPI.getTasks(user.token.value);
+                handleUpdateWorkItems(response.data.value);
+            } catch (error) {
+                if(error.response && error.response.status === 403) {
+                    console.error('Unauthorized:', error);
+                    return;
+                }
+                console.error('Failed to fetch:', error);
+            }
+        }
+
+        updateTasks()
     }, [' '])
 
     return (
-        <div>
+        <div className={styles.container}>
+            <header>
+                <h2>Your Work Items</h2>
+                <WITActionsBar actions={[{label: 'Closed'}, {label: 'Active'}, {label: 'New'}]} {...{onBatchAction, selectedRows }}  />
+            </header>
             <DataTable {...{ data: workItemsData, columns, handleClickRow, setSelected: handleSelectedRowChange }} />
         </div>
     );

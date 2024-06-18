@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { Navbar, ProtectedRoute } from './components'
-import { Home, Login, WorkItem } from './pages'
+import { Home, Login, NotFound, WorkItem } from './pages'
 import WorkItems from './pages/WorkItems'
 import { useAppContext } from './contexts/appContext';
 
@@ -19,6 +19,8 @@ function App() {
             <Route index element={<ProtectedRoute children={<WorkItems />} />} />
             <Route path=":id" element={<ProtectedRoute children={<WorkItem />} />} />
           </Route>
+
+          <Route path='*' element={<ProtectedRoute children={<NotFound />}/>}/>
         </Routes>
       </div>
     </>

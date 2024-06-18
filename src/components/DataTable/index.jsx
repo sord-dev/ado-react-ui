@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
+import { LoadingSpinner, RenderHeaderCell, RenderRow } from './partials';
 
 const Table = ({ columns, data, handleClickRow, setSelected }) => {
     const [selectedRows, setSelectedRows] = useState([]);
@@ -17,10 +18,16 @@ const Table = ({ columns, data, handleClickRow, setSelected }) => {
         setSelected(selected); // Pass selected rows to parent component
     };
 
-    const handleSelectAll = () => {
-        const allRows = data.map((_, index) => index);
-        setSelectedRows(selectedRows.length === data.length ? [] : allRows);
-        setSelected(selectedRows.length === data.length ? [] : allRows);
+    const handleSelectAll = (e) => {
+        e.stopPropagation();
+        if (e.target.checked) {
+            const selected = data.map((_, index) => index);
+            setSelectedRows(selected);
+            setSelected(data)
+        } else {
+            setSelectedRows([]);
+            setSelected([])
+        }
     };
 
     const handleRowClick = (e, rowIndex) => {
@@ -45,34 +52,14 @@ const Table = ({ columns, data, handleClickRow, setSelected }) => {
                             />
                         </th>
                         {columns.map((column, index) => (
-                            <th key={index} className={styles.headerCell}>
-                                {column.label}
-                            </th>
+                            <RenderHeaderCell key={index} column={column} colIndex={index} />
                         ))}
                     </tr>
                 </thead>
 
                 <tbody>
-                    {data.map((row, rowIndex) => (
-                        <tr
-                            key={rowIndex}
-                            onClick={(e) => handleRowClick(e, rowIndex)}
-                            className={`${styles.row} ${isRowSelected(rowIndex) && styles.selected}`}
-                        >
-                            <td onClick={() => toggleRowSelection(rowIndex)} className={styles['checkbox-container']}>
-                                <input
-                                    className={styles['checkbox']}
-                                    type="checkbox"
-                                    onChange={(e) => handleRowClick(e, rowIndex)}
-                                    checked={isRowSelected(rowIndex)}
-                                />
-                            </td>
-                            {columns.map((column, colIndex) => (
-                                <td key={colIndex} className={styles.cell}>
-                                    {column.render ? column.render(row[column.field]) : row[column.field]}
-                                </td>
-                            ))}
-                        </tr>
+                    {data.length <= 0 ? <LoadingSpinner /> : data.map((row, rowIndex) => (
+                        <RenderRow {...{ columns, handleRowClick, isRowSelected, row, rowIndex, toggleRowSelection }} />
                     ))}
                 </tbody>
             </table>

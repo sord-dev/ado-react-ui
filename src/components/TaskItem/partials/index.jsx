@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../styles.module.css'
 
 export function AttachmentsList({ attachments = [] }) {
@@ -85,6 +85,29 @@ export const QuickActionGrid = ({ children }) => {
     return (
         <div className={styles["quick-action-grid"]}>
             {children}
+        </div>
+    );
+};
+
+export const QuickAction = ({ action, label, info }) => {
+    const [isHovered, setIsHovered] = useState(false);
+
+    return (
+        <div className={styles.container}>
+           
+            <div className={styles.buttonContainer}>
+                <button className={styles.button} onClick={() => action()} type='button'>
+                    {label}
+                </button>
+
+                {info && (<>
+                    <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} className={styles['info-icon']}>
+                        <p>?</p>
+                    </div>
+
+                    {isHovered && <div className={styles.info}>{info}</div>}
+                </>)}
+            </div>
         </div>
     );
 };

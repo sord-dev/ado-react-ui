@@ -51,6 +51,7 @@ export const AuthContextProvider = ({ children }) => {
         try {
             setUser({ name: '', email: '', token: { value: '', expires: '' } });
             localStorage.removeItem('user');
+            localStorage.removeItem('workItems');
             await instance.logout();
         } catch (error) {
             console.error(error);

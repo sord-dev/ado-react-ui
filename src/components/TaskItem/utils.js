@@ -18,7 +18,7 @@ export const processTaskData = (task) => {
         changedDate: new Date(task.fields['System.ChangedDate']).toLocaleString(),
         commentCount: task.fields['System.CommentCount'],
         activatedDate: new Date(task.fields['Microsoft.VSTS.Common.ActivatedDate']).toLocaleString(),
-        activatedBy: task.fields['Microsoft.VSTS.Common.ActivatedBy'].displayName,
+        activatedBy: task.fields['Microsoft.VSTS.Common.ActivatedBy']?.displayName || 'N/A',
         attachments: task.relations?.filter(relation => relation.rel === 'AttachedFile').map(relation => ({
             id: relation.attributes.id,
             name: relation.attributes.name,

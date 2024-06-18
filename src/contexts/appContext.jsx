@@ -1,13 +1,14 @@
 import React, { createContext, useContext, useState } from 'react';
-import defaultData from './default.json' 
 
 // Create a new context with a default value
 const AppContext = createContext(null);
 
+
+const workItems = JSON.parse(localStorage.getItem('workItems')) || [];
 const defaultAppState = {
-    workItems: defaultData.tasks,
-    selectedWorkItem: null,
-    meta: { title: 'ADO Workbench' }
+  workItems: workItems,
+  selectedWorkItem: null,
+  meta: { title: 'ADO Workbench' }
 }
 
 // Create a provider component
@@ -18,12 +19,17 @@ export const AppContextProvider = ({ children }) => {
     setAppState({ ...appState, selectedWorkItem: workItem });
   }
 
+  const handleUpdateWorkItems = (workItems) => {
+    localStorage.setItem('workItems', JSON.stringify(workItems));
+    setAppState({ ...appState, workItems });
+  }
+
   const handleAppTitle = (title) => {
-    setAppState({ ...appState, meta: {...appState.meta, title } });
+    setAppState({ ...appState, meta: { ...appState.meta, title } });
   }
 
   return (
-    <AppContext.Provider value={{ appState, handleSelectedWorkItem, handleAppTitle }}>
+    <AppContext.Provider value={{ appState, handleSelectedWorkItem, handleAppTitle, handleUpdateWorkItems }}>
       {children}
     </AppContext.Provider>
   );

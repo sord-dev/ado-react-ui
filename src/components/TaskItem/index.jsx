@@ -3,8 +3,7 @@ import styles from './styles.module.css';
 
 import defaultData from './default.json';
 import { processTaskData } from './utils';
-import { QAButton } from '..';
-import { AttachmentsList, Detail, DetailsGrid, QuickActionGrid, TicketsList } from './partials';
+import { AttachmentsList, Detail, DetailsGrid, QuickAction, QuickActionGrid, TicketsList } from './partials';
 import { CopyTaskItemForm } from '../Forms';
 
 const WorkItem = ({ task = defaultData, openModal }) => {
@@ -34,7 +33,7 @@ const WorkItem = ({ task = defaultData, openModal }) => {
 
     return (
         <div className={styles['task-item']}>
-            
+
             <div className={`${styles.banner}`}>
                 <div className={styles['task-title-container']}>
                     <div className={`${styles.band} ${styles[witDynamicClassName]}`} />
@@ -50,7 +49,8 @@ const WorkItem = ({ task = defaultData, openModal }) => {
                 </div>
 
                 <div className={styles['task-actions']}>
-                    <button>action</button>
+                    <QuickAction label='Copy Task' info={'copy the task item'} action={() => openModal(<CopyTaskItemForm onSubmit={handleSubmit} />)} />
+                    <QuickAction label='Create Template' info={'Use task item as a template'} />
                 </div>
 
 
@@ -72,18 +72,6 @@ const WorkItem = ({ task = defaultData, openModal }) => {
                         <Detail label='Comments' value={commentCount} />
                         <Detail label='Attachments' value={attachments?.length || 0} />
                     </DetailsGrid>
-                </div>
-
-                <div>
-                    <QuickActionGrid>
-                        <QAButton
-                            label='Start Deployment'
-                            info={'start a deployment based off of a task item, and have it complete upon a successful run'}
-                            action={() => { openModal('ExampleForm', task.id) }}
-                        />
-                        <QAButton label='Copy Task Item' action={() => { openModal(<CopyTaskItemForm handleFormSubmit={handleSubmit} />) }} />
-                        <QAButton label='Search Related Items' />
-                    </QuickActionGrid>
                 </div>
             </section>
 
