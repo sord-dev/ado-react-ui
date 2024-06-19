@@ -71,6 +71,11 @@
     justify-content: space-between;
 }
 
+.side-nav.minified {
+    width: 60px;
+    /* Set the desired minified sidebar width */
+}
+
 .avatar-icon {
     /* Styles for the avatar icon */
     width: 32px;
@@ -106,6 +111,42 @@
     align-items: center;
     /* Vertically align content within the item */
     font-size: .8em;
+
+    height: 46px;
+    width: 100%;
+}
+
+.side-nav-group {
+    display: flex;
+    width: 100%;
+}
+
+.side-nav-group.minified {
+    /* Styles for the minified side navigation group */
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center items horizontally */
+}
+
+.side-nav-item.minified {
+    /* Styles for the minified side navigation item */
+    padding: 12px 12px;
+    /* Reduce padding for minified items */
+    justify-content: center;
+
+}
+
+.side-nav-label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+}
+
+.side-nav-label img {
+    width: 16px;
+    height: 16px;
 }
 
 .alert {
@@ -124,10 +165,23 @@
     font-weight: 500;
 }
 
-.side-nav-item:hover {
+.colapsable {
+    height: 46px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-nav-item:hover,
+.colapsable:hover {
     /* Styles for hover effect */
     background-color: #262626;
     /* Slightly darker background on hover */
+}
+
+.side-nav-item-container {
+    width: 100%;
 }
 
 .side-nav-item-label {

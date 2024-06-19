@@ -8,7 +8,8 @@ const workItems = JSON.parse(localStorage.getItem('workItems')) || [];
 const defaultAppState = {
   workItems: workItems,
   selectedWorkItem: null,
-  meta: { title: 'ADO Workbench' }
+  meta: { title: 'ADO Workbench', version: 'v0.0.1' },
+  navOpen: true
 }
 
 // Create a provider component
@@ -24,12 +25,16 @@ export const AppContextProvider = ({ children }) => {
     setAppState({ ...appState, workItems });
   }
 
+  const handleUpdateNavState = (navOpen) => {
+    setAppState({ ...appState, navOpen });
+  }
+
   const handleAppTitle = (title) => {
     setAppState({ ...appState, meta: { ...appState.meta, title } });
   }
 
   return (
-    <AppContext.Provider value={{ appState, handleSelectedWorkItem, handleAppTitle, handleUpdateWorkItems }}>
+    <AppContext.Provider value={{ appState, handleSelectedWorkItem, handleAppTitle, handleUpdateWorkItems, handleUpdateNavState }}>
       {children}
     </AppContext.Provider>
   );

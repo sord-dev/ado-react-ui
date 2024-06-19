@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       {location.pathname !== '/login' && <Navbar appState={appState} />}
-      <div className="main-container">
+      <div className={`main-container ${!appState.navOpen && 'nav-closed'}`}>
         <Routes>
           <Route path="/login" element={<Login />} />
 

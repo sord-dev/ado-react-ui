@@ -74,6 +74,10 @@ button {
   height: 90vh;
 }
 
+.main-container.nav-closed {
+  margin-left: 60px;
+}
+
 input[type="checkbox"]{
   position: relative;
   appearance: none;
