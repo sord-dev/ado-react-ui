@@ -3,6 +3,8 @@ import { useMsal } from "@azure/msal-react";
 import { loginRequest } from '../config';
 import { useNavigate } from 'react-router-dom';
 
+import defaults from './default.json'
+
 // Create a new context with a default value
 const AuthContext = createContext(null);
 
@@ -50,8 +52,11 @@ export const AuthContextProvider = ({ children }) => {
     const handleLogout = async () => {
         try {
             setUser({ name: '', email: '', token: { value: '', expires: '' } });
-            localStorage.removeItem('user');
-            localStorage.removeItem('workItems');
+
+            defaults.states.forEach(state => {
+                localStorage.removeItem(state)
+            });
+            
             await instance.logout();
         } catch (error) {
             console.error(error);

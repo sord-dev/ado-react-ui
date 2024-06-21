@@ -62,7 +62,7 @@ const WorkItems = () => {
     }
 
     useSEO({
-        title: 'Work Items - ADO Workbench',
+        title: `Work Items - ${appState.meta.title}`,
         metadata: { description: 'A simple workbench for Azure DevOps' }
     });
 

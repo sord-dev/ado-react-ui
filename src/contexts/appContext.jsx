@@ -5,8 +5,17 @@ const AppContext = createContext(null);
 
 
 const workItems = JSON.parse(localStorage.getItem('workItems')) || [];
+const templates = JSON.parse(localStorage.getItem('templates')) || [
+  {
+    "_id": "66743b625257d2efd6045e9b",
+    "name": "Pipeline Deployment Template",
+    "type": "Task Item"
+  }
+];
+
 const defaultAppState = {
   workItems: workItems,
+  templates: templates,
   selectedWorkItem: null,
   meta: { title: 'ADO Workbench', version: 'v0.0.1' },
   navOpen: true
