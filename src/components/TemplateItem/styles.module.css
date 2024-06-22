@@ -1,0 +1,103 @@
+
+/* styles.module.css */
+.template-item {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+  max-width: 380px;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.template-item-title {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.template-item-title h3 {
+  margin: 0;
+  font-size: .9rem;
+}
+
+.template-item-title img {
+  width: 18px;
+  height: 18px;
+}
+
+.template-item-meta {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  height: fit-content;
+}
+
+.template-item-meta img {
+  width: 12px;
+  height: 12px;
+}
+
+.template-item-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.template-item-header p {
+  font-size: .7rem;
+  max-width: 380px;
+  line-height: 110%;
+  color: #313131;
+}
+
+.template-item-actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.template-item-actions button {
+  font-size: .6rem;
+  padding: 4px 8px;
+  width: 68px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+.template-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  font-size: .7rem;
+}
+
+.band {
+  border-left: 3px solid black;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.band.task {
+  border-color: var(--task-item-color);
+  /* Example color for task-item */
+}
+
+.band.user-story {
+  border-color: var(--user-story-color);
+  /* Example color for user-story */
+}
+
+/* Additional dynamic classes */
+.band.bug {
+  border-color: var(--bug-item-color);
+  /* Example color for bug */
+}

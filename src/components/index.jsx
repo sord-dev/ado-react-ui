@@ -8,3 +8,4 @@ export { default as Avatar } from './Avatar';
 export { default as MSSignInButton } from './MSSignInButton';
 export { default as ProtectedRoute } from './ProtectedRoute';
 export { default as WITActionsBar } from './WITActionsBar';
+export { default as TemplateItem } from './TemplateItem';

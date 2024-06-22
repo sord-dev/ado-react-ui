@@ -1,17 +1,9 @@
-:root {
-    --task-item-color: #a4880a;
-    --user-story-color: #0098c7;
-    --bug-item-color: #d80000;
-    --epic-item-color: #ff8c00;
-}
-
 .task-item {
     border-radius: 4px;
     background-color: #ffffff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100%;
 }
-
 
 .task-item h2 {
     font-size: 16px;

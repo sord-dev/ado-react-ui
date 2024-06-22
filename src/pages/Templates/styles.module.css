@@ -1,3 +1,11 @@
 .container {
     padding: 6px 12px;
 }
+
+.templates {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 4px;
+    width: 100%;
+}

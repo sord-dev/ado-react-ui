@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './styles.module.css';
 import useSEO from '../../hooks/useSEO';
 import { useAppContext } from '../../contexts/appContext';
+import { TemplateItem } from '../../components';
 
 const Templates = () => {
     const { appState } = useAppContext();
@@ -17,10 +18,7 @@ const Templates = () => {
 
             <div className={styles.templates}>
                 {appState.templates.map((template) => (
-                    <div key={template.id} className={styles.template}>
-                        <h2>{template.name}</h2>
-                        <p>{template.description}</p>
-                    </div>
+                    <TemplateItem key={template._id} template={template} />
                 ))
                 }
             </div>
