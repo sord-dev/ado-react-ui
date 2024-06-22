@@ -5,44 +5,7 @@ const AppContext = createContext(null);
 
 
 const workItems = JSON.parse(localStorage.getItem('workItems')) || [];
-const templates = JSON.parse(localStorage.getItem('templates')) || [
-  {
-    "_id": "66743b625257d2efd6045e9b",
-    "name": "Pipeline Deployment Template",
-    "type": "Task",
-    "description": "Generic Pipeline deployment task template, optional ServiceNow CNG request ticket tracking inbuilt.",
-    "createdBy": "Stefan Syrett",
-    "lastUpdated": "2021-06-19T00:00:00.000Z",
-    "attachments": 1,
-  },
-  {
-    "_id": "66743b625257d2efd6045e9e",
-    "name": "PowerPlatform Sprint User Story",
-    "type": "User Story",
-    "description": "PowerPlatform user story template, created each sprint, containing information about deployed hotfixes and support activities.",
-    "createdBy": "Stefan Syrett",
-    "lastUpdated": "2021-06-19T00:00:00.000Z",
-    "attachments": 0,
-  },
-  {
-    "_id": "66743b625257d2efd6045e9b",
-    "name": "Pipeline Deployment Template",
-    "type": "Task",
-    "description": "Generic Pipeline deployment task template, optional ServiceNow CNG request ticket tracking inbuilt.",
-    "createdBy": "Stefan Syrett",
-    "lastUpdated": "2021-06-19T00:00:00.000Z",
-    "attachments": 1,
-  },
-  {
-    "_id": "66743b625257d2efd6045e9e",
-    "name": "PowerPlatform Sprint User Story",
-    "type": "User Story",
-    "description": "PowerPlatform user story template, created each sprint, containing information about deployed hotfixes and support activities.",
-    "createdBy": "Stefan Syrett",
-    "lastUpdated": "2021-06-19T00:00:00.000Z",
-    "attachments": 0,
-  },
-];
+const templates = JSON.parse(localStorage.getItem('templates')) || [];
 
 const defaultAppState = {
   workItems: workItems,
@@ -65,16 +28,34 @@ export const AppContextProvider = ({ children }) => {
     setAppState({ ...appState, workItems });
   }
 
+  const handleUpdateTemplates = (templates) => {
+    localStorage.setItem('templates', JSON.stringify(templates));
+    setAppState({ ...appState, templates });
+  }
+
   const handleUpdateNavState = (navOpen) => {
     setAppState({ ...appState, navOpen });
   }
 
   const handleAppTitle = (title) => {
-    setAppState({ ...appState, meta: { ...appState.meta, title } });
+    setAppState({
+      ...appState,
+      meta: {
+        ...appState.meta,
+        title
+      }
+    });
   }
 
   return (
-    <AppContext.Provider value={{ appState, handleSelectedWorkItem, handleAppTitle, handleUpdateWorkItems, handleUpdateNavState }}>
+    <AppContext.Provider value={{
+      appState,
+      handleSelectedWorkItem,
+      handleAppTitle,
+      handleUpdateWorkItems,
+      handleUpdateNavState,
+      handleUpdateTemplates
+    }}>
       {children}
     </AppContext.Provider>
   );

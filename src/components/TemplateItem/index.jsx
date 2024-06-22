@@ -4,10 +4,10 @@ import { returnWorkItemIcon } from '../../utils';
 
 import attachmentIcon from '/link-black.svg'
 
-const TemplateItem = ({ template }) => {
-    const { name, description, type, createdBy, lastUpdated, attachments } = template;
+const TemplateItem = ({ template, handleSelect }) => {
+    const { name, description, type, timestamp, createdBy, attachments = 0, _id } = template;
     const icon = returnWorkItemIcon(type)
-    const witDynamicClassName = type.toLowerCase().split(' ').join('-');
+    const witDynamicClassName = type?.toLowerCase().split(' ').join('-');
 
     return (
         <div className={styles['template-item']}>
@@ -31,12 +31,12 @@ const TemplateItem = ({ template }) => {
             <div className={styles['template-item-footer']}>
                 <div className={styles['template-item-actions']}>
                     <button>Create Item</button>
-                    <button>Edit</button>
+                    <button onClick={() => handleSelect(_id)} >Edit</button>
                 </div>
 
                 <div>
                     <p>Created by: {createdBy}</p>
-                    <p>Last updated: {new Date(lastUpdated).toLocaleDateString()}</p>
+                    <p>Last updated: {new Date(timestamp).toLocaleDateString()}</p>
                 </div>
             </div>
 

@@ -47,6 +47,14 @@ class ApiClientV1 {
     queryTasks(wiql, token) {
         return this.request('/tasks/query', 'POST', { wiql }, token);
     }
+
+    getTemplates(token) {
+        return this.request('/tasks/templates', 'GET', null, token);
+    }
+
+    getTemplateById(id, token) {
+        return this.request(`/tasks/templates/${id}`, 'GET', null, token);
+    }
 }
 
 const v1 = new ApiClientV1(config.endpoint);

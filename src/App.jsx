@@ -1,10 +1,9 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { Navbar, ProtectedRoute } from './components'
-import { Home, Login, NotFound, Templates, WorkItem } from './pages'
-import WorkItems from './pages/WorkItems'
+import { Home, Login, NotFound, Templates, WorkItem, WorkItems } from './pages'
 import { useAppContext } from './contexts/appContext';
 
-// TODO: Implement WorkItemTemplates and WorkItemTemplateDetails
+// TODO: Implement Templates and TemplateDetails
 // TODO: Implement Workflows, WorkflowCreate, and Workflow
 // TODO: Implement Connections and Settings
 // TODO: Implement Deployments, DeploymentsCalender, and DeploymentDetails
