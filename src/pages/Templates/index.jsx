@@ -54,8 +54,7 @@ const Templates = () => {
             </div>
 
             <Modal isOpen={selectedTemplate !== null} onClose={closeModal}>
-                <h1>Template Details</h1>
-                <TemplateDetails templateId={selectedTemplate} />
+                 <TemplateDetails templateId={selectedTemplate} />
             </Modal>
         </div>
     );

@@ -19,16 +19,12 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
 
-          <Route path="/" element={<ProtectedRoute children={<Home />} />} />
+          <Route path="/" element={<ProtectedRoute children={<WorkItems />} />} />
+          <Route path="/work-items/:id" element={<ProtectedRoute children={<WorkItem />} />} />
           {/* 
             <Route path="/connections" element={<ProtectedRoute children={<Connections />} />} />
             <Route path="/settings" element={<ProtectedRoute children={<Settings />} />} />
           */}
-
-          <Route path="/work-items" >
-            <Route index element={<ProtectedRoute children={<WorkItems />} />} />
-            <Route path=":id" element={<ProtectedRoute children={<WorkItem />} />} />
-          </Route>
 
 
           <Route path='/templates'>

@@ -34,7 +34,7 @@ const WorkItem = () => {
 
     return (
         <div className={styles['work-item-container']}>
-            <Breadcrum breadcrumbs={[{ label: 'Work Items', link: '/work-items' }, { label: id }]} />
+            <Breadcrum breadcrumbs={[{ label: 'Work Items', link: '/' }, { label: id }]} />
             <TaskItem openModal={handleOpenModal} task={workItem} />
             <Modal isOpen={modalState.open} children={modalState.form} onClose={handleCloseModal} />
         </div>

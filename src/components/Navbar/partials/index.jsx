@@ -22,8 +22,7 @@ export const SideNav = ({ appState, handleUpdateNavState }) => {
     return (
         <div className={`${styles["side-nav"]} ${open == false && styles["minified"]}`} >
             <section>
-                <SideNavItem label="Home" to={'/'} icon={homeIcon} open={open} />
-                <SideNavItem label="Work Items" icon={workItemsIcon} hits={appState.workItems?.length} displayHits to={'/work-items'} open={open} />
+                <SideNavItem label="Work Items" icon={workItemsIcon} hits={appState.workItems?.length} displayHits to={'/'} open={open} />
                 <SideNavItem label="Templates" icon={templatesIcon} to={'/templates'} open={open} />
                 <SideNavItem label="Deployments" to={'/deployments'} icon={deploymentsIcon} open={open} />
                 <SideNavItem label="Workflows" to={'/workflows'} icon={workflowsIcon} open={open} />

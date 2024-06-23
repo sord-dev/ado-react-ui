@@ -1,0 +1,41 @@
+.template {
+    /* Light gray border */
+    padding: 1rem;
+    /* Inner padding */
+    border-radius: 4px;
+    /* Rounded corners */
+    width: 520px;
+}
+
+.template h2 {
+    margin-top: 0;
+    /* Remove default margin-top */
+}
+
+.template.flat-ui h2 {
+    color: #222;
+    /* Black text */
+}
+
+.template p,
+.template li {
+    margin-bottom: 0.5rem;
+    /* Adjust spacing between elements */
+}
+
+.template-header p {
+    font-size: 0.9rem;
+}
+
+.template.flat-ui p,
+.template.flat-ui li {
+    color: #333333;
+    /* Gray text */
+}
+
+.template.flat-ui ul {
+    list-style: none;
+    /* Remove default bullet points */
+    padding: 0;
+    /* Remove default padding */
+}
